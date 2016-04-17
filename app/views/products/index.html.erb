@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="products.css"> 
+  <title>
+    
+  </title>
+</head>
+<body>
+
+<table class ="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Image</th>
+ </tr>
+ <% @products.each do |product| %>
+ <tr>
+   <td>
+    <a href="/products/<%= product.id %>"><%= product.name %></a>
+  </td>
+  <td><%= product.price %></td>
+  <td><img src="product.image_url %>" /></td>
+</tr>
+<% end %>
+</table>
+  
+
+</body>
+</html>

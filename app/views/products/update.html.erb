@@ -1,0 +1,24 @@
+
+<h1>Update an existing product</h1>
+
+<%= form_tag "/products/#{@product.id}", method :post do %>
+
+<div>
+<%= label_tag :product_name %>
+<%= text_field_tag :product_name %>
+</div>
+
+<div>
+<%= label_tag :product_price %>
+<%= text_field_tag :product_price %>
+</div>
+
+<div>
+<%= label_tag :product_description %>
+<%= text_field_tag :product_description %>
+</div>
+
+
+
+
+
