@@ -13,21 +13,26 @@ class ProductsController < ApplicationController
   end
 
   def create
-    new_product = Product.new(name: params[:name], )
+    new_product = Product.new(name: params[:name], price: params[:price], image_url: params[:image_url])
     new_product.save
+    flash[:success] = "Product Created"
+    redirect_to "/products/#{new_product.id}"
   end
 
   def edit
     @product = Product.find_by(id: params[:id])
+
   end
 
   def update
 
     @product = Product.find_by(id: params[:id])
-    @product.model = params[:name]
+    @product.name = params[:name]
     @product.price = params[:price]
-    @product.image = params[:description]
+    @product.image_url = params[:image_url]
     @product.save
+    flash[:success] = "Product Updated"
+    redirect_to "/products/#{@product.id}"
 
   def destroy
 

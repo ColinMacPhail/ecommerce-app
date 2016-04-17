@@ -1,8 +1,8 @@
-<ul>
-  <li><%= @product.name %></li>
-</ul>
-<%=end%>
+<p> Here is your product </p>
+
+<%= @product.name %>
+<%= @product.price %>
+<%= @product.image_url %>
 
 
-<%= link_to "Delete", "/products/#{@products.id}", method: :delete %>
 
