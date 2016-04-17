@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'name', to: 'params#name'
+  get 'name', to: 'params'
   get 'products', to: 'products'
 
 
