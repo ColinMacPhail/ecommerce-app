@@ -7,21 +7,32 @@
   </title>
 </head>
 <body>
+
+
 <div class="row">
-  <div class="col-md-3"><% @products.each do |product| %>
+<% @products.each do |product| %>
+  <div class="col-md-4">
+    <p><a href="/products/<%= product.id %>"><%= product.name %></a></p>
+    <p><%= product.price %></p>
+    <img src="product.image_url{width:200px, height:200px}" />
+ 
+  </div>
 </div>
 
 
- 
+
+
+ <table>
  <tr>
    <td>
     <a href="/products/<%= product.id %>"><%= product.name %></a>
-  </td>
-  <td><%= product.price %></td>
-  <td><img src="product.image_url %>" /></td>
+ </td>
+ <td><%= product.price %></td>
+   <td><img src="product.image_url %>"></td>
+
 </tr>
 <% end %>
-</table> -->
+</table> 
   
 
 </body>
