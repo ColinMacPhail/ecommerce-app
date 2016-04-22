@@ -7,6 +7,9 @@
   </title>
 </head>
 <body>
+<a href="/products?sort=high_price">Sort by Highest Price</a>
+<a href="/products?sort=low_price">Sort by Lowest Price</a>
+
 
 
 <div class="row">
@@ -14,7 +17,7 @@
   <div class="col-md-4">
     <p><a href="/products/<%= product.id %>"><%= product.name %></a></p>
     <p><%= product.price %></p>
-    <img src="product.image_url{width:200px, height:200px}" />
+    <img src="<%= product.image_url %>" />
  
   </div>
 </div>

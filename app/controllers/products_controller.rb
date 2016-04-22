@@ -1,7 +1,16 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    sort_choice =params[:sort]
+    if sort_choice == "high_price"
+      @products = Product.order(:price)
+    elsif sort_choice == "low_price"
+      @products = Product.order(price: :desc)
+    else
+      @products = Product.all
+
+    end
+
   end
 
   def show
@@ -30,18 +39,19 @@ class ProductsController < ApplicationController
     @product.name = params[:name]
     @product.price = params[:price]
     @product.image_url = params[:image_url]
+    @product.description = params[:description]
     @product.save
     flash[:success] = "Product Updated"
     redirect_to "/products/#{@product.id}"
 
-  def destroy
+    def destroy
 
-  end
+    end
 
-  def create
-    new_product = Product.new
+    def create
+      new_product = Product.new
 
-  end
+    end
 
 
     
@@ -56,6 +66,6 @@ class ProductsController < ApplicationController
    # @product.update(model: params[:model], price: params[:price], image: params[:image])
 
 
-  end
+ end
 
 end
