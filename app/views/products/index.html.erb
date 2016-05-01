@@ -1,42 +1,30 @@
 <!DOCTYPE>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="products.css"> 
+  <link rel="stylesheet" type="text/css" href="products.css"> 
   <title>
-    
+
   </title>
 </head>
 <body>
-<a href="/products?sort=high_price">Sort by Highest Price</a>
-<a href="/products?sort=low_price">Sort by Lowest Price</a>
+  <a href="/products?sort=high_price">Sort by Highest Price</a>
+  <a href="/products?sort=low_price">Sort by Lowest Price</a>
 
 
 
-<div class="row">
-<% @products.each do |product| %>
-  <div class="col-md-4">
-    <p><a href="/products/<%= product.id %>"><%= product.name %></a></p>
-    <p><%= product.price %></p>
-    <img src="<%= product.image_url %>" />
- 
+  <div class="row">
+    <% @products.each do |product| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <a href="/products/<%= product.id %>"><%= product.name %>>
+          <p><%= product.price %></p>
+       </a>
+      </div>
+    </div> 
+
   </div>
-</div>
 
-
-
-
- <table>
- <tr>
-   <td>
-    <a href="/products/<%= product.id %>"><%= product.name %></a>
- </td>
- <td><%= product.price %></td>
-   <td><img src="product.image_url %>"></td>
-
-</tr>
-<% end %>
-</table> 
-  
 
 </body>
 </html>
+<% end %>

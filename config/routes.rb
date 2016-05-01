@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  
+root to: "params#name"
+
   get '/', to: 'params#name'
   get '/products', to: 'products#index'
   get '/products/new', to: 'products#new'
@@ -8,6 +12,11 @@ Rails.application.routes.draw do
   get '/products/:id/edit', to: 'products#edit'
   patch '/products/:id', to: 'products#update'
   delete '/products/:id', to: 'products#destroy'
+  get '/suppliers', to: 'product#search'
+
+post '/orders', to: 'orders#create'
+get '/orders/:id', to: 'orders#show'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

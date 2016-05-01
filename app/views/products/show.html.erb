@@ -1,10 +1,23 @@
-<p> Here is your product </p>
+<p> Here are your products </p>
 
 <p>
 <%= @product.name %>
 <%= @product.price %>
-<img src="<%= @product.image_url %>">
+<%= @product.description %>
 </p>
+
+<% = form_tag "/orders", method :post do %>
+<div>
+<%= label_tag :quantity %>
+<%= text_field_tage :quantity %>
+</div>
+
+<div>
+<%= hidden_field_tag :product_id, @product.id %>
+<%= submit_tag "Buy now!" %>
+</div>
+
+<%= end %>
 
 
 
