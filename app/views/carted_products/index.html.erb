@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Bootstrap Example</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+ <h2>Grab Bag</h2>
+ <p>Here's the loot</p>            
+ <table class="table table-hover">
+   <thead>
+   <%= carted_products.each do |carted_product| %>
+     <tr>
+       <th> <%=carted_product.product.name %> </th>
+       <th><%=carted_product.quantity%> </th>
+       <th><%= link_to "Remove_product", "/carted_products/#{carted_product.id}", method: :delete %></th>
+     </tr>
+   </thead>
+   <% end %>
+   <tbody>
+
+
+     <!-- <tr>
+       <td>John</td>
+       <td>Doe</td>
+       <td>john@example.com</td>
+     </tr>
+     <tr>
+       <td>Mary</td>
+       <td>Moe</td>
+       <td>mary@example.com</td>
+     </tr>
+     <tr>
+       <td>July</td>
+       <td>Dooley</td>
+       <td>july@example.com</td> -->
+     </tr>
+   </tbody>
+   <%= link_to "Confirm and Buy", "orders/#{@order.id}", method: patch %>
+ </table>
+</div>
+
+</body>
+</html>

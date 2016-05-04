@@ -1,23 +1,21 @@
-<p> Here are your products </p>
+<p> Check it out! </p>
 
-<p>
+<li>
 <%= @product.name %>
 <%= @product.price %>
-<%= @product.description %>
-</p>
+</li>
+<li><%= @product.description %></li>
+<ul><%= @product.images.first.url %></ul>
 
-<% = form_tag "/orders", method :post do %>
+
+<%= form_tag "/carted_products", method: :post do %>
 <div>
 <%= label_tag :quantity %>
-<%= text_field_tage :quantity %>
+<%= text_field_tag :quantity %>
 </div>
-
-<div>
 <%= hidden_field_tag :product_id, @product.id %>
-<%= submit_tag "Buy now!" %>
-</div>
-
-<%= end %>
+<%= submit_tag "Add to cart" %>
+<% end %>
 
 
 

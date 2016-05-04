@@ -14,8 +14,13 @@ root to: "params#name"
   delete '/products/:id', to: 'products#destroy'
   get '/suppliers', to: 'product#search'
 
-post '/orders', to: 'orders#create'
-get '/orders/:id', to: 'orders#show'
+
+  get '/carted_products', to: 'carted_products#index'
+    post 'carted_products/', to: 'carted_products#create'
+
+  post 'carted_products', to: 'carted_products#create'
+  post '/orders', to: 'orders#create'
+  get '/orders/:id', to: 'orders#show'
 
 
 

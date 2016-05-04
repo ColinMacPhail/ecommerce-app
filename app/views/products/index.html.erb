@@ -7,24 +7,34 @@
   </title>
 </head>
 <body>
+
+
   <a href="/products?sort=high_price">Sort by Highest Price</a>
-  <a href="/products?sort=low_price">Sort by Lowest Price</a>
+ 
+  <a href="/products?sort=category">Sort by Name</a>
+  
 
 
+ <!--  <% Category.all.each do |category| %>
+    <li><%= link_to category.id, "/products?category=#{category.id}" %></li>
+    <% end %> -->
 
   <div class="row">
     <% @products.each do |product| %>
     <div class="col-md-3">
       <div class="thumbnail">
-        <a href="/products/<%= product.id %>"><%= product.name %>>
+        <a href="/products/<%= product.id %>"><%= product.name %>
           <p><%= product.price %></p>
+          <div>
+          <img src="<%= product.images.first.url %>" width="200" height="200">
+        </div>
        </a>
       </div>
     </div> 
+    <% end %>
 
   </div>
 
 
 </body>
 </html>
-<% end %>
