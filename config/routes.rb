@@ -16,9 +16,8 @@ root to: "params#name"
 
 
   get '/carted_products', to: 'carted_products#index'
-    post 'carted_products/', to: 'carted_products#create'
-
-  post 'carted_products', to: 'carted_products#create'
+  post '/carted_products', to: 'carted_products#create'
+  
   post '/orders', to: 'orders#create'
   get '/orders/:id', to: 'orders#show'
 

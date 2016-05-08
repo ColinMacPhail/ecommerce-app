@@ -1,13 +1,16 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
 
   def index
     if params[:sort]
       @products = Product.order(:price)
     elsif params[:category]
       @products =  Category.find_by(id: params[:id]).products
-      
-    else
+    end
+
+      else
       @products = Product.all
+      end
     # sort_choice =params[:sort]
     # if sort_choice == "high_price"
     #   @products = Product.order(:price)
@@ -16,8 +19,7 @@ class ProductsController < ApplicationController
     # else
     #   @products = Product.all
 
-  end
-
+    
 end
 
 def show
@@ -25,14 +27,19 @@ def show
 end
 
 def new
+  @product = Product.new
 
 end
 
 def create
   new_product = Product.new(name: params[:name], price: params[:price], description: params[:description])
-  new_product.save
-  flash[:success] = "Product Created"
-  redirect_to "/products/#{new_product.id}"
+  if @product.save #happy_path
+    flash[:success] = "Product Created"
+    redirect_to "/products/#{@product.id}"
+  else #sad_path
+    render :new
+  end
+
 end
 
 def edit
@@ -64,8 +71,8 @@ def update
 
 
   User.first.orders.find_by(completed: false).carted_products.first.product
-  
-  
+
+
     # second way
     # @product = Product.find_by(id: params[:id])
     # @product.assign.attributes(model: params[:model], price: params[:price], image: params[:image])
@@ -78,4 +85,4 @@ def update
 
  end
 
-end
+

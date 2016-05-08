@@ -7,6 +7,11 @@ class Product < ActiveRecord::Base
   has_many :categories, through: :categorized_products
   has_many :order, through: :carted_products
 
+  validates :name, :description, presence: true
+  validates :price, numericality: {only_integer: true, greater_than: 0}
+  # validates :name, uniqueness: true
+
+
 
 
   def friendly_created_at

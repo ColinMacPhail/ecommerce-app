@@ -15,14 +15,14 @@
  <p>Here's the loot</p>            
  <table class="table table-hover">
    <thead>
-   <%= carted_products.each do |carted_product| %>
+   <% @order.carted_products.each do |carted_product| %>
      <tr>
        <th> <%=carted_product.product.name %> </th>
        <th><%=carted_product.quantity%> </th>
        <th><%= link_to "Remove_product", "/carted_products/#{carted_product.id}", method: :delete %></th>
      </tr>
-   </thead>
    <% end %>
+   </thead>
    <tbody>
 
 
@@ -42,7 +42,7 @@
        <td>july@example.com</td> -->
      </tr>
    </tbody>
-   <%= link_to "Confirm and Buy", "orders/#{@order.id}", method: patch %>
+   <%= link_to "Confirm and Buy", "/orders/#{@order.id}", method: :post %>
  </table>
 </div>
 

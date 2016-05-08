@@ -27,10 +27,12 @@ class OrdersController < ApplicationController
   end
             
         total = total_tax * total_subtotal
-        
+
 
   end
         order.update(completed: true, tax: )
+        session[:cart_count] = nil
+
 
   
 
